@@ -18,13 +18,18 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.alex.koveckiy</groupId>
+            <groupId>com.alex_koveckiy</groupId>
             <artifactId>authorization-api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>com.alex.koveckiy</groupId>
+            <groupId>com.alex_koveckiy</groupId>
             <artifactId>common-router</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alex_koveckiy</groupId>
+            <artifactId>common-database</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
