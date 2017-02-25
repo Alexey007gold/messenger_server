@@ -1,11 +1,14 @@
 package com.softgroup.authorization.api.message;
 
 import com.softgroup.common.protocol.RequestData;
+import org.springframework.stereotype.Component;
 
 /**
  * @author odin
  * @since 20.02.17.
  */
+
+@Component
 public class LoginRequest implements RequestData {
 
 	private static final long serialVersionUID = 4895237867750981751L;

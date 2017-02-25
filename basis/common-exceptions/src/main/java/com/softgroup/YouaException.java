@@ -1,4 +1,4 @@
-package com.softgroup.common.exceptions;
+package com.softgroup;
 
 /**
  * @author odin

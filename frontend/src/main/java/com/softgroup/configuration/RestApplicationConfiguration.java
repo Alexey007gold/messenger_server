@@ -1,4 +1,4 @@
-package com.softgroup.common.router.configuration;
+package com.softgroup.configuration;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -9,7 +9,7 @@ import org.springframework.context.annotation.FilterType;
  */
 
 @Configuration
-@ComponentScan(basePackages = "com",
+@ComponentScan(basePackages = "com.softgroup",
     excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, value = Configuration.class)
 )
 public class RestApplicationConfiguration {

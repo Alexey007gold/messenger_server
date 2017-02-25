@@ -1,4 +1,4 @@
-package com.softgroup.common.router.configuration;
+package com.softgroup.configuration;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
