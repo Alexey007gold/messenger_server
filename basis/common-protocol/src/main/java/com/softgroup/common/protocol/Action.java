@@ -6,9 +6,9 @@ public class Action<T extends Serializable> implements Serializable {
 
 	private static final long serialVersionUID = 3373910816445037302L;
 
-    protected ActionHeader header;
+    private ActionHeader header;
 
-    protected T data;
+    private T data;
 
     public Action() {
     }
