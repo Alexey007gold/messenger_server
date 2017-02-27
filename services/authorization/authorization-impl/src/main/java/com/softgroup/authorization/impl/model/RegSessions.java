@@ -1,6 +1,5 @@
 package com.softgroup.authorization.impl.model;
 
-import org.jose4j.keys.AesKey;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;

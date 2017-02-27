@@ -18,14 +18,14 @@ public abstract class AbstractRequestHandler<T extends RequestData, R extends Re
     @Autowired
     protected HandlerFactory<RequestHandler> handlerFactory;
 
-    private Class<T> clazz;
+    private static Class clazz;
 
     @Override
     public Response<?> handle(Request<?> msg) {
-        clazz = (Class<T>) ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+        clazz = (Class) ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[0];
         Request<T> request = new Request<>();
         request.setHeader(msg.getHeader());
-        request.setData(dataMapper.convert(msg.getData(), clazz));
+        request.setData(dataMapper.convert(msg.getData(), (Class<T>) clazz));
 
         return process(request);
     }
