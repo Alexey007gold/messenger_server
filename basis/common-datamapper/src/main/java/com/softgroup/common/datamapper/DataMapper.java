@@ -17,7 +17,7 @@ public interface DataMapper {
 
 	<T> T convert(Map<String, Object> map, Class<T> dataType);
 
-	<F, T> T convert(F from, TypeReference<T> dataType);
+	<T> T convert(Object from, TypeReference<T> dataType);
 
 	<T> T convert(Object from, Class<T> dataType);
 
@@ -32,8 +32,4 @@ public interface DataMapper {
 	<T> String dataToString(T data);
 
 	String objectToString(Object data);
-
-    TypeFactory getTypeFactory();
-
-	<T> T mapData(String request, JavaType javaType);
 }
