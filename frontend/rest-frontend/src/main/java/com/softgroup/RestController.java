@@ -29,7 +29,7 @@ public class RestController {
     @RequestMapping(path = "")
     public Response<?> getRequest(@RequestBody final Request<?> request) {
         try {
-            return handlerFactory.getHandler("main").handle(request);
+            return handlerFactory.getHandler("first-router").handle(request);
         } catch (Exception e) {
             return new Response<>(null, null, new ResponseStatus(400, "Bad request"));
         }

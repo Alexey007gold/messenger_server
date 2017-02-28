@@ -13,7 +13,12 @@
     <artifactId>frontend</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <packaging>war</packaging>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>rest-frontend</module>
+        <module>ws-frontend</module>
+    </modules>
 
     <dependencies>
         <dependency>
