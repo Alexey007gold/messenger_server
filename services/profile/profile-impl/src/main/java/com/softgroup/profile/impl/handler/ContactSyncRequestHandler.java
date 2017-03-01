@@ -18,7 +18,7 @@ import java.util.UUID;
 
 @Component
 public class ContactSyncRequestHandler extends AbstractRequestHandler<ContactSyncRequest, ContactSyncResponse>
-        implements ProfileRequestHandler {
+        implements ProfileRequestHandler<ContactSyncResponse> {
 
 
     @Override
