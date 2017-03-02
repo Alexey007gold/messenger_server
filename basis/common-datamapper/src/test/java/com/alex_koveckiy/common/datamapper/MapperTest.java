@@ -3,8 +3,8 @@ package com.alex_koveckiy.common.datamapper;
 import com.alex_koveckiy.common.datamapper.support.ModelA;
 import com.alex_koveckiy.common.datamapper.support.ModelB;
 import com.alex_koveckiy.common.datamapper.support.ModelWithEnum;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.alex_koveckiy.common.exceptions.MapperException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import org.junit.Test;
 
 import java.util.ArrayList;

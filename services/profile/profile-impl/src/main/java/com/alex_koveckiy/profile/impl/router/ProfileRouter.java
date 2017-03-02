@@ -1,7 +1,6 @@
 package com.alex_koveckiy.profile.impl.router;
 
-import com.alex_koveckiy.common.protocol.Request;
-import com.alex_koveckiy.common.router.api.AbstractRouterHandler;
+import com.alex_koveckiy.common.router.api.AbstractByCommandRouterHandler;
 import com.alex_koveckiy.profile.api.router.ProfileRouterHandler;
 import org.springframework.stereotype.Component;
 
@@ -10,14 +9,10 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-public class ProfileRouter extends AbstractRouterHandler<ProfileRouterHandler> {
-
-    public String getName() {
-        return "profile";
-    }
+public class ProfileRouter extends AbstractByCommandRouterHandler<ProfileRouterHandler> {
 
     @Override
-    public String getRouteKey(Request<?> msg) {
-        return msg.getHeader().getCommand();
+    public String getName() {
+        return "profile";
     }
 }

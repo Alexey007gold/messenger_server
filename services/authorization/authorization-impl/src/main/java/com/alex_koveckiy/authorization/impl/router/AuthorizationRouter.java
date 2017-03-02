@@ -1,8 +1,7 @@
 package com.alex_koveckiy.authorization.impl.router;
 
 import com.alex_koveckiy.authorization.api.router.AuthorizationRouterHandler;
-import com.alex_koveckiy.common.protocol.Request;
-import com.alex_koveckiy.common.router.api.AbstractRouterHandler;
+import com.alex_koveckiy.common.router.api.AbstractByCommandRouterHandler;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,14 +9,10 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-public class AuthorizationRouter extends AbstractRouterHandler<AuthorizationRouterHandler> {
-
-    public String getName() {
-        return "authorization";
-    }
+public class AuthorizationRouter extends AbstractByCommandRouterHandler<AuthorizationRouterHandler> {
 
     @Override
-    public String getRouteKey(Request<?> msg) {
-        return msg.getHeader().getCommand();
+    public String getName() {
+        return "authorization";
     }
 }

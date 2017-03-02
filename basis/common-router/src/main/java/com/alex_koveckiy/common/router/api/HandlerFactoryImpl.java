@@ -20,10 +20,6 @@ public class HandlerFactoryImpl<T extends Handler> implements HandlerFactory<T> 
 
     private Map<String, T> handlerMap = new HashMap<>();
 
-    public HandlerFactoryImpl() {
-        int a = 5;
-    }
-
     @PostConstruct
     public void init() {
         for (T handler : handlers) {
