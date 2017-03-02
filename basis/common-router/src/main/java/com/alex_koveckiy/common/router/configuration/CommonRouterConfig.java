@@ -10,5 +10,5 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
 @ComponentScan(basePackages = "com.alex_koveckiy.common.router")
-public class ModuleConfig {
+public class CommonRouterConfig {
 }

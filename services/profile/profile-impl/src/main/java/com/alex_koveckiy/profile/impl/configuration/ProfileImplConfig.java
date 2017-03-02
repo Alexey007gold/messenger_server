@@ -1,4 +1,4 @@
-package com.alex_koveckiy.authorization.api.configuration;
+package com.alex_koveckiy.profile.impl.configuration;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -8,6 +8,6 @@ import org.springframework.context.annotation.Configuration;
  */
 
 @Configuration
-@ComponentScan(basePackages = "com.alex_koveckiy.authorization.api")
-public class ModuleConfig {
+@ComponentScan(basePackages = "com.alex_koveckiy.profile.impl")
+public class ProfileImplConfig {
 }

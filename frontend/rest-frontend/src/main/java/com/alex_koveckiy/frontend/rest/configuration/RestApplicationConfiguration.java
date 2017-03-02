@@ -13,14 +13,10 @@ import org.springframework.context.annotation.Import;
 @ComponentScan(basePackages = "com.alex_koveckiy.frontend.rest",
     excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, value = Configuration.class)
 )
-@Import({com.alex_koveckiy.common.datamapper.configuration.ModuleConfig.class,
-        com.alex_koveckiy.common.exceptions.configuration.ModuleConfig.class,
-        com.alex_koveckiy.common.protocol.configuration.ModuleConfig.class,
-        com.alex_koveckiy.common.router.configuration.ModuleConfig.class,
-        com.alex_koveckiy.authorization.api.configuration.ModuleConfig.class,
-        com.alex_koveckiy.authorization.impl.configuration.ModuleConfig.class,
-        com.alex_koveckiy.profile.api.configuration.ModuleConfig.class,
-        com.alex_koveckiy.profile.impl.configuration.ModuleConfig.class
+@Import({com.alex_koveckiy.common.datamapper.configuration.DataMapperConfig.class,
+        com.alex_koveckiy.common.router.configuration.CommonRouterConfig.class,
+        com.alex_koveckiy.authorization.impl.configuration.AuthorizationImplConfig.class,
+        com.alex_koveckiy.profile.impl.configuration.ProfileImplConfig.class
 })
 public class RestApplicationConfiguration {
 }

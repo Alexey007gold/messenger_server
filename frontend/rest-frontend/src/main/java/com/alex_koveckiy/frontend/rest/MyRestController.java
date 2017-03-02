@@ -5,6 +5,7 @@ import com.alex_koveckiy.common.protocol.Response;
 import com.alex_koveckiy.common.protocol.ResponseStatus;
 import com.alex_koveckiy.common.router.api.HandlerFactory;
 import com.alex_koveckiy.common.router.api.RouterHandler;
+import com.alex_koveckiy.common.router.impl.FirstRouter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,12 +26,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class MyRestController {
 
     @Autowired
-    private HandlerFactory<RouterHandler> handlerFactory;
+    private FirstRouter firstRouter;
 
     @RequestMapping(path = "")
     public Response<?> getRequest(@RequestBody final Request<?> request) {
         try {
-            return handlerFactory.getHandler("first-router").handle(request);
+            return firstRouter.handle(request);
         } catch (Exception e) {
             return new Response<>(null, null, new ResponseStatus(400, "Bad request"));
         }
