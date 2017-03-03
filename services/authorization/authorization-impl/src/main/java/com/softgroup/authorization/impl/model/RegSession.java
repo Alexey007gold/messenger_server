@@ -6,7 +6,6 @@ import org.jose4j.jwe.KeyManagementAlgorithmIdentifiers;
 import org.jose4j.jwt.JwtClaims;
 import org.jose4j.keys.AesKey;
 import org.jose4j.lang.JoseException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
 import java.util.UUID;

@@ -1,9 +1,9 @@
 package com.softgroup.common.datamapper;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.softgroup.common.datamapper.support.ModelA;
 import com.softgroup.common.datamapper.support.ModelB;
 import com.softgroup.common.datamapper.support.ModelWithEnum;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.softgroup.common.exceptions.MapperException;
 import org.junit.Test;
 
