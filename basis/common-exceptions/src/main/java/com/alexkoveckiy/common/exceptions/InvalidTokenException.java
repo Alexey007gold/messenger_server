@@ -1,4 +1,4 @@
-package com.alexkoveckiy.common.token.exception;
+package com.alexkoveckiy.common.exceptions;
 
 /**
  * Created by alex on 15.03.17.

@@ -1,10 +1,7 @@
 package com.alexkoveckiy.common.token.api;
 
+import com.alexkoveckiy.common.exceptions.InvalidTokenException;
 import com.alexkoveckiy.common.protocol.RoutingData;
-import com.alexkoveckiy.common.token.exception.InvalidTokenException;
-import org.jose4j.jwt.MalformedClaimException;
-import org.jose4j.jwt.consumer.InvalidJwtException;
-import org.jose4j.lang.JoseException;
 
 /**
  * Created by alex on 11.03.17.

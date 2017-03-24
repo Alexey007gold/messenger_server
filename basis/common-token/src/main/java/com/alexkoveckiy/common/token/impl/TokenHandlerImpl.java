@@ -1,8 +1,8 @@
 package com.alexkoveckiy.common.token.impl;
 
+import com.alexkoveckiy.common.exceptions.InvalidTokenException;
 import com.alexkoveckiy.common.protocol.RoutingData;
 import com.alexkoveckiy.common.token.api.TokenHandler;
-import com.alexkoveckiy.common.token.exception.InvalidTokenException;
 import org.jose4j.jwe.ContentEncryptionAlgorithmIdentifiers;
 import org.jose4j.jwe.JsonWebEncryption;
 import org.jose4j.jwe.KeyManagementAlgorithmIdentifiers;
