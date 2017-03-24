@@ -39,7 +39,7 @@ public class PersistentJPAConfig {
     @Bean
     public DataSource dataSource() {
         MysqlDataSource dataSource = new MysqlDataSource();
-        dataSource.setUrl("jdbc:mysql://localhost:3306/chat_database");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/chat_database?nullNamePatternMatchesAll=true");
         dataSource.setUser("root");
         dataSource.setPassword("1024");
         return dataSource;
