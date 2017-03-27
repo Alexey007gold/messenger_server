@@ -35,8 +35,9 @@ public class RegSession {
     }
 
     private int newAuthCode() {
-        //TODO
-        return 12345;
+        double rand = Math.random();
+        if (rand < 0.1) rand += 0.1;
+        return (int)(rand * 100000);
     }
 
     private int timeOut() {
@@ -63,7 +64,11 @@ public class RegSession {
         return phoneNumber;
     }
 
-    public boolean hasExpired() {
-        return System.currentTimeMillis() - creationTime >= timeOut * 1000;
+    public String getDeviceId() {
+        return deviceId;
+    }
+
+    public String getLocale() {
+        return locale;
     }
 }
