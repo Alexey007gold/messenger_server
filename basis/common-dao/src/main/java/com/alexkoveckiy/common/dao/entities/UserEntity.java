@@ -10,17 +10,14 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "users")
-public class UserEntity implements Serializable {
+public class UserEntity extends BaseEntity {
 
     private static final long serialVersionUID = -1019243451531277705L;
 
-    @Id
     private String phoneNumber;
 
-    public UserEntity() {
-    }
-
-    public UserEntity(String phoneNumber) {
+    public UserEntity(String id, String phoneNumber) {
+        super(id);
         this.phoneNumber = phoneNumber;
     }
 
