@@ -8,6 +8,7 @@ import com.alexkoveckiy.common.router.api.Handler;
 import com.alexkoveckiy.common.router.impl.FirstRouter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -29,7 +30,7 @@ public class PrivateRestController {
     @RequestMapping
     public Response<?> processPrivateRequest(@RequestBody final Request<?> request, HttpSession session) {
         try {
-            request.setRoutingData(((RoutingData)SecurityContextHolder.getContext().getAuthentication()).getPrincipal());
+            request.setRoutingData((RoutingData)(SecurityContextHolder.getContext().getAuthentication()).getPrincipal());
             return firstRouter.handle(request);
         } catch (Exception e) {
             return new Response<>(null, null, new ResponseStatus(400, "Bad request"));
