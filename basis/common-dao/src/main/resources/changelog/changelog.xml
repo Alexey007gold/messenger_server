@@ -19,23 +19,23 @@
             <column name="id" type="VARCHAR(36)">
                 <constraints nullable="false" primaryKey="true" unique="true"/>
             </column>
-            <column name="user_id" type="TEXT">
+            <column name="userId" type="TEXT">
                 <constraints nullable="false"/>
             </column>
-            <column name="device_id" type="TEXT">
+            <column name="deviceId" type="TEXT">
                 <constraints nullable="false"/>
             </column>
-            <column name="confirmation_time" type="BIGINT">
+            <column name="confirmationTime" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
 
     <changeSet id="270320171057" author="Alex">
-        <renameColumn tableName="users" oldColumnName="phoneNumber" newColumnName="phone_number"/>
-        <renameColumn tableName="devices" oldColumnName="userId" newColumnName="user_id"/>
-        <renameColumn tableName="devices" oldColumnName="deviceId" newColumnName="device_id"/>
-        <renameColumn tableName="devices" oldColumnName="confirmationTime" newColumnName="confirmation_time"/>
+        <renameColumn tableName="users" oldColumnName="phoneNumber" newColumnName="phone_number" columnDataType="TEXT"/>
+        <renameColumn tableName="devices" oldColumnName="userId" newColumnName="user_id" columnDataType="TEXT"/>
+        <renameColumn tableName="devices" oldColumnName="deviceId" newColumnName="device_id" columnDataType="TEXT"/>
+        <renameColumn tableName="devices" oldColumnName="confirmationTime" newColumnName="confirmation_time" columnDataType="BIGINT"/>
     </changeSet>
 
 </databaseChangeLog>
