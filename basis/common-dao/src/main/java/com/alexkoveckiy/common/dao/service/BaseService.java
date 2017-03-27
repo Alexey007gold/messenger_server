@@ -1,5 +1,6 @@
 package com.alexkoveckiy.common.dao.service;
 
+import com.alexkoveckiy.common.dao.entities.BaseEntity;
 import com.alexkoveckiy.common.dao.repositories.BaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -7,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * Created by alex on 11.03.17.
  */
-public abstract class BaseService<E, R extends BaseRepository<E>> {
+public abstract class BaseService<E extends BaseEntity, R extends BaseRepository<E>> {
 
     @Autowired
     protected R repository;

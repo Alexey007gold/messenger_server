@@ -10,12 +10,9 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "devices")
-public class DeviceEntity implements Serializable {
+public class DeviceEntity extends BaseEntity {
 
     private static final long serialVersionUID = 1115505457482755907L;
-
-    @Id
-    private String id;
 
     private String userId;
 
@@ -23,22 +20,11 @@ public class DeviceEntity implements Serializable {
 
     private Long confirmationTime;
 
-    public DeviceEntity() {
-    }
-
     public DeviceEntity(String id, String userId, String deviceId, Long confirmationTime) {
-        this.id = id;
+        super(id);
         this.userId = userId;
         this.deviceId = deviceId;
         this.confirmationTime = confirmationTime;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getUserId() {

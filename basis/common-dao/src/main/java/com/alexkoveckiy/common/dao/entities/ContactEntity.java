@@ -10,12 +10,9 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "contacts")
-public class ContactEntity implements Serializable {
+public class ContactEntity extends BaseEntity {
 
     private static final long serialVersionUID = -7753889542769024084L;
-
-    @Id
-    private String id;
 
     //Whose contact it is
     private String userId;
@@ -26,17 +23,11 @@ public class ContactEntity implements Serializable {
     //Yeah
     private String number;
 
-    public ContactEntity() {
-    }
-
-    public ContactEntity(String userId, String name, String number) {
+    public ContactEntity(String id, String userId, String name, String number) {
+        super(id);
         this.userId = userId;
         this.name = name;
         this.number = number;
-    }
-
-    public String getId() {
-        return id;
     }
 
     public String getUserId() {
