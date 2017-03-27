@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 public class FirstRouter extends AbstractRouterHandler<ByTypeRouterHandler> {
 
     @Autowired
-    private HandlerFactoryByType handlerFactory;
+    private HandlerFactory handlerFactoryByType;
 
     @Override
     public String getName() {
@@ -23,6 +23,6 @@ public class FirstRouter extends AbstractRouterHandler<ByTypeRouterHandler> {
 
     @Override
     protected HandlerFactory<ByTypeRouterHandler> getHandlerFactory() {
-        return handlerFactory;
+        return handlerFactoryByType;
     }
 }

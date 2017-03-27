@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 public class AuthorizationRouter extends AbstractRouterHandler<AuthorizationRequestHandler> implements ByTypeRouterHandler {
 
     @Autowired
-    private AuthorizationHandlerFactory handlerFactory;
+    private HandlerFactory authorizationHandlerFactory;
 
     @Override
     public String getName() {
@@ -25,6 +25,6 @@ public class AuthorizationRouter extends AbstractRouterHandler<AuthorizationRequ
 
     @Override
     protected HandlerFactory<AuthorizationRequestHandler> getHandlerFactory() {
-        return handlerFactory;
+        return authorizationHandlerFactory;
     }
 }

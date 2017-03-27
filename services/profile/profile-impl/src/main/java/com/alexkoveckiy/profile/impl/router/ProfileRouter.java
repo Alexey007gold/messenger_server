@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 public class ProfileRouter extends AbstractRouterHandler<ProfileRequestHandler> implements ByTypeRouterHandler {
 
     @Autowired
-    private ProfileHandlerFactory handlerFactory;
+    private HandlerFactory profileHandlerFactory;
 
     @Override
     public String getName() {
@@ -25,6 +25,6 @@ public class ProfileRouter extends AbstractRouterHandler<ProfileRequestHandler> 
 
     @Override
     protected HandlerFactory<ProfileRequestHandler> getHandlerFactory() {
-        return handlerFactory;
+        return profileHandlerFactory;
     }
 }
