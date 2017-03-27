@@ -23,7 +23,7 @@ public class TokenHandlerImpl implements TokenHandler {
     private final String TEMPORARY_TOKEN = "temporaryToken";
 
     @Override
-    public String createDeviceToken(String userId, String deviceId, String locale) throws InvalidTokenException {
+    public String createDeviceToken(String userId, String deviceId) throws InvalidTokenException {
         try {
             JwtClaims claims = new JwtClaims();
             claims.setIssuedAtToNow();

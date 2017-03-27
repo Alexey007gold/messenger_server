@@ -4,6 +4,7 @@ import com.alexkoveckiy.authorization.impl.router.AuthorizationRouter;
 import com.alexkoveckiy.common.protocol.Request;
 import com.alexkoveckiy.common.protocol.Response;
 import com.alexkoveckiy.common.protocol.ResponseStatus;
+import com.alexkoveckiy.common.router.api.Handler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,12 +24,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class PublicRestController {
 
     @Autowired
-    private AuthorizationRouter authorizationRouter;
+    private Handler firstRouter;
 
     @RequestMapping
     public Response<?> processPublicRequest(@RequestBody final Request<?> request) {
         try {
-            return authorizationRouter.handle(request);
+            return firstRouter.handle(request);
         } catch (Exception e) {
             return new Response<>(null, null, new ResponseStatus(400, "Bad request"));
         }

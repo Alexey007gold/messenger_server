@@ -4,6 +4,7 @@ import com.alexkoveckiy.common.protocol.Request;
 import com.alexkoveckiy.common.protocol.Response;
 import com.alexkoveckiy.common.protocol.ResponseStatus;
 import com.alexkoveckiy.common.protocol.RoutingData;
+import com.alexkoveckiy.common.router.api.Handler;
 import com.alexkoveckiy.common.router.impl.FirstRouter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -23,12 +24,12 @@ import javax.servlet.http.HttpSession;
 public class PrivateRestController {
 
     @Autowired
-    private FirstRouter firstRouter;
+    private Handler firstRouter;
 
     @RequestMapping
     public Response<?> processPrivateRequest(@RequestBody final Request<?> request, HttpSession session) {
         try {
-            request.setRoutingData((RoutingData) session.getAttribute("routing_data"));
+            request.setRoutingData(((RoutingData)SecurityContextHolder.getContext().getAuthentication()).getPrincipal());
             return firstRouter.handle(request);
         } catch (Exception e) {
             return new Response<>(null, null, new ResponseStatus(400, "Bad request"));
