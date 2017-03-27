@@ -26,7 +26,6 @@ import org.springframework.context.annotation.Import;
         ProfileImplConfig.class,
         PersistentJPAConfig.class,
         TokenConfig.class,
-        PersistentJPAConfig.class,
         CustomSecurityConfigurerAdapter.class
 })
 public class RestApplicationConfiguration {

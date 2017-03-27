@@ -1,5 +1,6 @@
 package com.alexkoveckiy.common.dao.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -14,6 +15,7 @@ public class ContactEntity extends BaseEntity {
     private static final long serialVersionUID = -7753889542769024084L;
 
     //Whose contact it is
+    @Column(name = "user_id")
     private String userId;
 
     //Contact name
@@ -21,6 +23,9 @@ public class ContactEntity extends BaseEntity {
 
     //Yeah
     private String number;
+
+    public ContactEntity() {
+    }
 
     public ContactEntity(String id, String userId, String name, String number) {
         super(id);

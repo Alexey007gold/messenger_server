@@ -38,4 +38,85 @@
         <renameColumn tableName="devices" oldColumnName="confirmationTime" newColumnName="confirmation_time" columnDataType="BIGINT"/>
     </changeSet>
 
+    <changeSet id="220320171002" author="Alex">
+        <renameTable oldTableName="users" newTableName="profile"/>
+        <renameTable oldTableName="devices" newTableName="device"/>
+        <renameColumn tableName="device" oldColumnName="user_id" newColumnName="profile_id" columnDataType="TEXT"/>
+        <addColumn tableName="profile">
+            <column name="create_date_time" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="update_date_time" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="avatar_uri" type="TEXT"/>
+            <column name="name" type="TEXT"/>
+            <column name="status" type="TEXT"/>
+        </addColumn>
+        <createTable tableName="number">
+            <column name="number_id" type="VARCHAR(36)">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="contact_id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="number" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="220320171352" author="Alex">
+        <createTable tableName="contact">
+            <column name="contact_id" type="VARCHAR(36)">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="profile_id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="230320171229" author="Alex">
+        <createTable tableName="profile_settings">
+            <column name="id" type="VARCHAR(36)">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="profile_id" type="VARCHAR(36)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="share_online_status" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="share_seen_status" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="profile_status">
+            <column name="id" type="VARCHAR(36)">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="profile_id" type="VARCHAR(36)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="last_time_online" type="BIGINT(19)">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="230320171353" author="Alex">
+        <createTable tableName="contact_number">
+            <column name="contact_id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="number_id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
 </databaseChangeLog>
