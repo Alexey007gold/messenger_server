@@ -1,36 +1,45 @@
 package com.alexkoveckiy.common.dao.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 /**
  * Created by alex on 16.03.17.
  */
 @Entity
-@Table(name = "devices")
+@Table(name = "device")
 public class DeviceEntity extends BaseEntity {
 
     private static final long serialVersionUID = 1115505457482755907L;
 
-    private String userId;
+    @Column(name = "profile_id")
+    private String profileId;
 
+    @Column(name = "device_id")
     private String deviceId;
 
+    @Column(name = "confirmation_time")
     private Long confirmationTime;
 
-    public DeviceEntity(String id, String userId, String deviceId, Long confirmationTime) {
+    public DeviceEntity() {
+    }
+
+    public DeviceEntity(String id, String profileId, String deviceId, Long confirmationTime) {
         super(id);
-        this.userId = userId;
+        this.profileId = profileId;
         this.deviceId = deviceId;
         this.confirmationTime = confirmationTime;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getProfileId() {
+        return profileId;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setProfileId(String profileId) {
+        this.profileId = profileId;
     }
 
     public String getDeviceId() {
