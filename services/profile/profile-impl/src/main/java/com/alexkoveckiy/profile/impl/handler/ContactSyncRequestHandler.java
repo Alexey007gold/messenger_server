@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ContactSyncRequestHandler extends AbstractRequestHandler<ContactSyncRequest, ContactSyncResponse>
-        implements ProfileRequestHandler<ContactSyncResponse> {
+        implements ProfileRequestHandler {
 
 
     @Override
@@ -23,7 +23,7 @@ public class ContactSyncRequestHandler extends AbstractRequestHandler<ContactSyn
     }
 
     @Override
-    public Response<ContactSyncResponse> process(Request<?> msg) {
+    protected Response<ContactSyncResponse> process(Request<ContactSyncRequest> msg) {
         return null;
     }
 }

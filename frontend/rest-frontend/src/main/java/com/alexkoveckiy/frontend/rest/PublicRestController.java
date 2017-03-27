@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.InvalidParameterException;
+
 /**
  * Created by alex on 24.03.17.
  */
@@ -28,6 +30,8 @@ public class PublicRestController {
     @RequestMapping
     public Response<?> processPublicRequest(@RequestBody final Request<?> request) {
         try {
+            if (!request.getHeader().getType().equals("authorization"))
+                throw new InvalidParameterException();
             return firstRouter.handle(request);
         } catch (Exception e) {
             return new Response<>(null, null, new ResponseStatus(400, "Bad request"));
