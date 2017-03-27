@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.lang.reflect.ParameterizedType;
 
-public abstract class AbstractRequestHandler<T extends RequestData, R extends ResponseData> implements RequestHandler<R> {
+public abstract class AbstractRequestHandler<T extends RequestData, R extends ResponseData> implements RequestHandler {
 
     @Autowired
     private DataMapper dataMapper;
@@ -25,4 +25,6 @@ public abstract class AbstractRequestHandler<T extends RequestData, R extends Re
 
         return process(request);
     }
+
+    protected abstract Response<R> process(Request<T> msg);
 }
