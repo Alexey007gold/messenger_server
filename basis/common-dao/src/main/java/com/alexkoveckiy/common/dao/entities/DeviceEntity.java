@@ -1,9 +1,7 @@
 package com.alexkoveckiy.common.dao.entities;
 
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
-import java.io.Serializable;
 
 /**
  * Created by alex on 16.03.17.

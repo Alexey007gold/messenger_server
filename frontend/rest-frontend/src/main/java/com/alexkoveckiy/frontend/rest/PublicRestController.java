@@ -1,6 +1,5 @@
 package com.alexkoveckiy.frontend.rest;
 
-import com.alexkoveckiy.authorization.impl.router.AuthorizationRouter;
 import com.alexkoveckiy.common.protocol.Request;
 import com.alexkoveckiy.common.protocol.Response;
 import com.alexkoveckiy.common.protocol.ResponseStatus;

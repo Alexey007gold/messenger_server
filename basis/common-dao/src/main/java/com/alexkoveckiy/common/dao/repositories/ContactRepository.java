@@ -1,7 +1,6 @@
 package com.alexkoveckiy.common.dao.repositories;
 
 import com.alexkoveckiy.common.dao.entities.ContactEntity;
-import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.List;
 
