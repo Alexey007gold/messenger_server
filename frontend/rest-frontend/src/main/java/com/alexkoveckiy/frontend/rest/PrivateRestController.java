@@ -3,14 +3,14 @@ package com.alexkoveckiy.frontend.rest;
 import com.alexkoveckiy.common.protocol.Request;
 import com.alexkoveckiy.common.protocol.Response;
 import com.alexkoveckiy.common.protocol.ResponseStatus;
+import com.alexkoveckiy.common.protocol.RoutingData;
+import com.alexkoveckiy.common.router.api.Handler;
 import com.alexkoveckiy.common.router.impl.FirstRouter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by alex on 24.02.17.
@@ -19,15 +19,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(method = RequestMethod.POST,
         consumes = MediaType.APPLICATION_JSON_VALUE,
-        produces = MediaType.APPLICATION_JSON_VALUE)
-public class MyRestController {
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        path = "server/private")
+public class PrivateRestController {
 
     @Autowired
-    private FirstRouter firstRouter;
+    private Handler firstRouter;
 
-    @RequestMapping(path = "server")
-    public Response<?> getRequest(@RequestBody final Request<?> request) {
+    @RequestMapping
+    public Response<?> processPrivateRequest(@RequestBody final Request<?> request, HttpSession session) {
         try {
+            request.setRoutingData(((RoutingData)SecurityContextHolder.getContext().getAuthentication()).getPrincipal());
             return firstRouter.handle(request);
         } catch (Exception e) {
             return new Response<>(null, null, new ResponseStatus(400, "Bad request"));
