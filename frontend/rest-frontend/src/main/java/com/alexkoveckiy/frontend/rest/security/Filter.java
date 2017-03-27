@@ -8,8 +8,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Component;
 
-//import com.alexkoveckiy.common.token.api.TokenHandler;
-//import com.alexkoveckiy.common.exceptions.InvalidTokenException;
+import com.alexkoveckiy.common.token.api.TokenHandler;
+import com.alexkoveckiy.common.exceptions.InvalidTokenException;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -28,8 +28,6 @@ public class Filter extends UsernamePasswordAuthenticationFilter {
     @Autowired
     private TokenHandler tokenHandler;
 
-    private Authentication authentication;
-
     public Filter() {
         this.authentication = new UsernamePasswordAuthenticationToken(null, null);
     }
@@ -38,8 +36,8 @@ public class Filter extends UsernamePasswordAuthenticationFilter {
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
         try {
             HttpServletRequest request = ((HttpServletRequest)req);
-            request.getSession()
-                    .setAttribute("routing_data", tokenHandler.getRoutingDataFromTemporaryToken(request.getHeader("x-token")));
+            RoutingData routingData = tokenHandler.getRoutingDataFromTemporaryToken(request.getHeader("x-token"));
+            Authentication authentication = new UsernamePasswordAuthenticationToken(null, routingData);
             SecurityContextHolder.getContext().setAuthentication(authentication);
             chain.doFilter(req, res);
         } catch (InvalidTokenException ignored) {
