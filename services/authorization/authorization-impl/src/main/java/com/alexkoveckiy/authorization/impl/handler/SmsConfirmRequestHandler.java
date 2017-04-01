@@ -68,24 +68,22 @@ public class SmsConfirmRequestHandler extends AbstractRequestHandler<SmsConfirmR
 
             RegSession regSession = regSessions.takeRegSession(uuid);
             if (regSession != null && regSession.getAuthCode() == authCode) {
-                String profileId = UUID.randomUUID().toString();
-                String deviceToken = tokenHandler.createDeviceToken(profileId,
-                        regSession.getDeviceId());
-
                 long time = System.currentTimeMillis();
-                profileService.save(new ProfileEntity(profileId,
-                        regSession.getPhoneNumber(),
+                ProfileEntity profileEntity = profileService.save(new ProfileEntity(regSession.getPhoneNumber(),
                         time,
                         time,
                         null,
                         null,
                         null));
-                deviceService.save(new DeviceEntity(UUID.randomUUID().toString(),
-                        profileId,
+                String deviceToken = tokenHandler.createDeviceToken(profileEntity.getId(),
+                        regSession.getDeviceId(),
+                        regSession.getLocale());
+
+                deviceService.save(new DeviceEntity(profileEntity.getId(),
                         regSession.getDeviceId(),
                         tokenHandler.getClaimsFromDeviceToken(deviceToken).getIssuedAt().getValueInMillis()));
-                profileSettingsService.save(new ProfileSettingsEntity(UUID.randomUUID().toString(), profileId, true, true));
-                profileStatusService.save(new ProfileStatusEntity(UUID.randomUUID().toString(), profileId, null));
+                profileSettingsService.save(new ProfileSettingsEntity(profileEntity.getId(), true, true));
+                profileStatusService.save(new ProfileStatusEntity(profileEntity.getId(), null));
 
                 header = new ActionHeader(UUID.randomUUID().toString(),
                         msg.getHeader().getUuid(),
