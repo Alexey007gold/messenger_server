@@ -29,12 +29,8 @@ public class PublicRestController {
 
     @RequestMapping
     public Response<?> processPublicRequest(@RequestBody final Request<?> request) {
-        try {
-            if (!request.getHeader().getType().equals("authorization"))
-                throw new InvalidParameterException();
-            return firstRouter.handle(request);
-        } catch (Exception e) {
+        if (!request.getHeader().getType().equals("authorization"))
             return new Response<>(null, null, new ResponseStatus(400, "Bad request"));
-        }
+        return firstRouter.handle(request);
     }
 }
