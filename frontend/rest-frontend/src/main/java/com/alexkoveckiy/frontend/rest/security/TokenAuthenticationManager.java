@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 public class TokenAuthenticationManager implements AuthenticationManager {
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        authentication.setAuthenticated(true);
         return authentication;
     }
 }
