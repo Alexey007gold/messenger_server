@@ -1,40 +1,47 @@
 package com.alexkoveckiy.common.dao.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by alex on 05.03.17.
  */
 
 @Entity
-@Table(name = "contacts")
+@Table(name = "contact")
 public class ContactEntity extends BaseEntity {
 
     private static final long serialVersionUID = -7753889542769024084L;
 
     //Whose contact it is
-    private String userId;
+    private String profileId;
 
     //Contact name
     private String name;
 
-    //Yeah
-    private String number;
+    //Contact numbers
+    @ElementCollection
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "contact_number",
+            joinColumns = @JoinColumn(name = "contactId"),
+            inverseJoinColumns = @JoinColumn(name = "numberId"))
+    private Set<NumberEntity> numbers;
 
-    public ContactEntity(String id, String userId, String name, String number) {
-        super(id);
-        this.userId = userId;
+    public ContactEntity() {
+    }
+
+    public ContactEntity(String profileId, String name, Set<NumberEntity> numbers) {
+        this.profileId = profileId;
         this.name = name;
-        this.number = number;
+        this.numbers = numbers;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getProfileId() {
+        return profileId;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setProfileId(String profileId) {
+        this.profileId = profileId;
     }
 
     public String getName() {
@@ -45,11 +52,11 @@ public class ContactEntity extends BaseEntity {
         this.name = name;
     }
 
-    public String getNumber() {
-        return number;
+    public Set<NumberEntity> getNumbers() {
+        return numbers;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setNumbers(Set<NumberEntity> numbers) {
+        this.numbers = numbers;
     }
 }
