@@ -11,14 +11,28 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class ModelMapperService extends ModelMapper {
+
+    private ModelMapper modelMapper;
+
     public ModelMapperService() {
+        modelMapper = new ModelMapper();
         //this mapping is needed because without it mapper
         //tries to convert wrong field to boolean
-        addMappings(new PropertyMap<ProfileStatusEntity, ProfileStatusDTO>() {
+        //and throws exception that Long can't be
+        //converted to boolean
+        modelMapper.addMappings(new PropertyMap<ProfileStatusEntity, ProfileStatusDTO>() {
             @Override
             protected void configure() {
                 map().setOnline(System.currentTimeMillis() - source.getLastTimeOnline() < 300000);
             }
         });
+    }
+
+    public <D> D map(Object source, Class<D> destinationType) {
+        return modelMapper.map(source, destinationType);
+    }
+
+    public void map(Object source, Object destination) {
+        modelMapper.map(source, destination);
     }
 }
