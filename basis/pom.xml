@@ -23,6 +23,7 @@
         <module>common-protocol</module>
         <module>common-dao</module>
         <module>common-token</module>
+        <module>ws-session-service</module>
     </modules>
 
 </project>
