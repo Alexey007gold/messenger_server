@@ -4,7 +4,6 @@ import com.alexkoveckiy.common.dao.entities.BaseEntity;
 import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
-
 /**
  * Created by alex on 16.03.17.
  */
