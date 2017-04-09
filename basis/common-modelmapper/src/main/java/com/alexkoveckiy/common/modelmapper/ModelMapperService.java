@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * Created by alex on 22.03.17.
  */
 @Component
-public class ModelMapperService extends ModelMapper {
+public class ModelMapperService {
 
     private ModelMapper modelMapper;
 
@@ -23,7 +23,7 @@ public class ModelMapperService extends ModelMapper {
         modelMapper.addMappings(new PropertyMap<ProfileStatusEntity, ProfileStatusDTO>() {
             @Override
             protected void configure() {
-                map().setOnline(System.currentTimeMillis() - source.getLastTimeOnline() < 300000);
+                map().setOnline(false);
             }
         });
     }
