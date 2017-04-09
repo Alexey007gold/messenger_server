@@ -1,4 +1,4 @@
-package com.alexkoveckiy.common.dto.configuration.DTO;
+package com.alexkoveckiy.messenger.api.dto;
 
 import java.util.List;
 

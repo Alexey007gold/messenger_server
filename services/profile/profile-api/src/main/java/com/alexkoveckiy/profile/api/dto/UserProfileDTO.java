@@ -1,9 +1,12 @@
-package com.alexkoveckiy.common.dto.configuration.DTO;
+package com.alexkoveckiy.profile.api.dto;
+
+import org.springframework.stereotype.Component;
 
 /**
  * Created by alex on 22.03.17.
  */
-public class MyProfileDTO {
+@Component
+public class UserProfileDTO {
 
     private String id;
 
@@ -19,10 +22,10 @@ public class MyProfileDTO {
 
     private String status;
 
-    public MyProfileDTO() {
+    public UserProfileDTO() {
     }
 
-    public MyProfileDTO(String id, String phoneNumber, Long createDateTime, Long updateDateTime, String avatarUri, String name, String status) {
+    public UserProfileDTO(String id, String phoneNumber, Long createDateTime, Long updateDateTime, String avatarUri, String name, String status) {
         this.id = id;
         this.phoneNumber = phoneNumber;
         this.createDateTime = createDateTime;

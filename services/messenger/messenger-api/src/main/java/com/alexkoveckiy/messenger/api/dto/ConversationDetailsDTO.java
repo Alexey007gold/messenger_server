@@ -1,6 +1,7 @@
-package com.alexkoveckiy.common.dto.configuration.DTO;
+package com.alexkoveckiy.messenger.api.dto;
 
 import java.util.List;
+import com.alexkoveckiy.profile.api.dto.UserProfileDTO;
 
 /**
  * Created by alex on 31.03.17.

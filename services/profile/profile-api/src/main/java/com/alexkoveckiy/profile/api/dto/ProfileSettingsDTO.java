@@ -1,4 +1,4 @@
-package com.alexkoveckiy.common.dto.configuration.DTO;
+package com.alexkoveckiy.profile.api.dto;
 
 /**
  * Created by alex on 23.03.17.

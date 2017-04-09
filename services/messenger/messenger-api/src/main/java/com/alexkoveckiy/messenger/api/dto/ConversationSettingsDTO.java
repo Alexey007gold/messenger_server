@@ -1,4 +1,4 @@
-package com.alexkoveckiy.common.dto.configuration.DTO;
+package com.alexkoveckiy.messenger.api.dto;
 
 /**
  * Created by alex on 31.03.17.
