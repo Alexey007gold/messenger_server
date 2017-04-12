@@ -15,5 +15,11 @@
 
     <packaging>jar</packaging>
 
-    
+    <dependencies>
+        <dependency>
+            <groupId>com.alex_koveckiy</groupId>
+            <artifactId>common-datamapper</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>
