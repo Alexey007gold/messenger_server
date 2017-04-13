@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.security.InvalidParameterException;
 
+import static com.alexkoveckiy.common.protocol.ResponseFactory.Status.BAD_REQUEST;
+
 /**
  * Created by alex on 24.03.17.
  */
@@ -30,7 +32,7 @@ public class PublicRestController {
     @RequestMapping
     public Response<?> processPublicRequest(@RequestBody final Request<?> request) {
         if (!request.getHeader().getType().equals("authorization"))
-            return new Response<>(null, null, new ResponseStatus(400, "Bad request"));
+            return ResponseFactory.createResponse(request, BAD_REQUEST);
         return firstRouter.handle(request);
     }
 }

@@ -1,5 +1,6 @@
 package com.alexkoveckiy.frontend.rest;
 
+import com.alexkoveckiy.common.isonline.IsOnlineService;
 import com.alexkoveckiy.common.protocol.Request;
 import com.alexkoveckiy.common.protocol.Response;
 import com.alexkoveckiy.common.protocol.ResponseStatus;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
 
+import static com.alexkoveckiy.common.protocol.ResponseFactory.Status.BAD_REQUEST;
+
 /**
  * Created by alex on 24.02.17.
  */
@@ -29,13 +32,19 @@ public class PrivateRestController {
     @Autowired
     private Handler firstRouter;
 
+    @Autowired
+    private IsOnlineService isOnlineService;
+
     @RequestMapping
     public Response<?> processPrivateRequest(@RequestBody final Request<?> request, HttpSession session) {
         try {
-            request.setRoutingData((RoutingData)(SecurityContextHolder.getContext().getAuthentication()).getPrincipal());
+            RoutingData routingData = (RoutingData) session.getAttribute("routing_data");
+            request.setRoutingData(routingData);
+            isOnlineService.checkOnline(routingData.getProfileId());
+
             return firstRouter.handle(request);
         } catch (Exception e) {
-            return new Response<>(null, null, new ResponseStatus(400, "Bad request"));
+            return ResponseFactory.createResponse(request, BAD_REQUEST);
         }
     }
 }

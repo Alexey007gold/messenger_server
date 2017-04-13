@@ -3,6 +3,7 @@ package com.alexkoveckiy.frontend.rest.configuration;
 import com.alexkoveckiy.authorization.impl.configuration.AuthorizationImplConfig;
 import com.alexkoveckiy.common.dao.configuration.PersistentJPAConfig;
 import com.alexkoveckiy.common.datamapper.configuration.DataMapperConfig;
+import com.alexkoveckiy.common.isonline.configuration.IsOnlineConfig;
 import com.alexkoveckiy.common.router.configuration.CommonRouterConfig;
 import com.alexkoveckiy.common.token.configuration.TokenConfig;
 import com.alexkoveckiy.frontend.rest.security.configuration.CustomSecurityConfigurerAdapter;
@@ -26,7 +27,8 @@ import org.springframework.context.annotation.Import;
         ProfileImplConfig.class,
         PersistentJPAConfig.class,
         TokenConfig.class,
-        CustomSecurityConfigurerAdapter.class
+        CustomSecurityConfigurerAdapter.class,
+        IsOnlineConfig.class
 })
 public class RestApplicationConfiguration {
 }

@@ -23,6 +23,7 @@
         <module>common-protocol</module>
         <module>common-dao</module>
         <module>common-token</module>
+        <module>is-online-service</module>
     </modules>
 
 </project>
