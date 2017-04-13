@@ -33,8 +33,8 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
         PersistentJPAConfig.class,
         TokenConfig.class,
         CommonModelMapperConfig.class,
-        CommonDtoConfig.class,
-        WSSessionServiceConfig.class
+        WSSessionServiceConfig.class,
+        IsOnlineConfig.class
 })
 public class WSConfiguration implements WebSocketConfigurer {
 
