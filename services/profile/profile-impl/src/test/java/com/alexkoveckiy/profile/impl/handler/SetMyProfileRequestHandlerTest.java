@@ -18,11 +18,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mockito;
 import org.mockito.Spy;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 /**
@@ -69,6 +69,8 @@ public class SetMyProfileRequestHandlerTest {
         request.setRoutingData(new RoutingData("prof", "dev"));
 
         Response<SetMyProfileResponse> response = handler.process(request);
+        verify(profileService).save(any(ProfileEntity.class));
+
         assertThat(response.getStatus().getCode(), is(200));
         assertThat(response.getHeader().getType(), is("profile"));
         assertThat(response.getHeader().getCommand(), is("set_my_profile"));
