@@ -17,7 +17,7 @@ public class RoutingData implements Serializable {
         this.deviceId = deviceId;
     }
 
-    public String getUserId() {
+    public String getProfileId() {
         return userId;
     }
 
